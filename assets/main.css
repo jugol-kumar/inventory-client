@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html,
+body{
+  scroll-behavior:smooth;
+  overflow-x: hidden;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+  .btn{
+      @apply px-9 py-3 bg-orange-400 hover:shadow-xl rounded-lg mb-32 font-bold  hover:shadow-orange-300 text-white duration-100 hover:scale-105
+  }
+  
+  .btn-primary{
+      @apply px-9 py-3 bg-purple-400 hover:shadow-md rounded-lg font-bold cursor-pointer hover:shadow-slate-700 text-white duration-100 hover:scale-105
+  }
+
+  .ki-duotone,
+  .ki-solid,
+  .ki-outline{
+    @apply text-2xl group-hover:text-sky-400 group-[.active]:text-sky-400
+  }
+  .icon-gradient{
+      @apply text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-purple-600;
+  }
+
+
+
+  /*admin panel card css*/
+  .card{
+    @apply  bg-white border border-gray-100 shadow-md shadow-black/10 rounded-md
+  }
+
+  .order-tab .active{
+    @apply text-white bg-green-500 hover:bg-green-700 hover:text-white
+  }
+
+  .main.active{
+    @apply md:w-full ml-0;
+  }
+
+}
+.customize-table{
+	--easy-table-border: none;
+	--easy-table-row-border: none;
+
+  --easy-table-header-font-size: 14px;
+  --easy-table-header-height: 50px;
+  --easy-table-header-font-color: #707070;
+  --easy-table-header-background-color: #cbcbcb;
+
+  --easy-table-header-item-padding: 10px 15px;
+
+  --easy-table-body-even-row-font-color: #fff;
+  --easy-table-body-even-row-background-color: #4c5d7a;
+
+  --easy-table-body-row-font-color: #c0c7d2;
+  --easy-table-body-row-background-color: #2d3a4f;
+  --easy-table-body-row-height: 50px;
+  --easy-table-body-row-font-size: 14px;
+
+  --easy-table-body-row-hover-font-color: #2d3a4f;
+  --easy-table-body-row-hover-background-color: #eee;
+
+  --easy-table-body-item-padding: 10px 15px;
+
+  --easy-table-footer-background-color: #2d3a4f;
+  --easy-table-footer-font-color: #c0c7d2;
+  --easy-table-footer-font-size: 14px;
+  --easy-table-footer-padding: 0px 10px;
+  --easy-table-footer-height: 50px;
+
+  --easy-table-rows-per-page-selector-width: 70px;
+  --easy-table-rows-per-page-selector-option-padding: 10px;
+  --easy-table-rows-per-page-selector-z-index: 1;
+
+
+  --easy-table-scrollbar-track-color: #2d3a4f;
+  --easy-table-scrollbar-color: #2d3a4f;
+  --easy-table-scrollbar-thumb-color: #4c5d7a;;
+  --easy-table-scrollbar-corner-color: #2d3a4f;
+
+  --easy-table-loading-mask-background-color: #2d3a4f;
+}
