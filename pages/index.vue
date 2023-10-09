@@ -60,7 +60,7 @@
 
     const isLoading = ref(false)
 
-    const login = () =>{
+    const login = async () =>{
         await useFetch("http://localhost:8000/")
     }
 
