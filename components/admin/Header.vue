@@ -140,8 +140,8 @@
                         <div class="p-4 flex items-center gap-2 cursor-pointer">
                             <img src="https://placehold.co/50x50" class="w-10 h-10 rounded block object-cover" alt="">
                             <div>
-                                <p class="text-sm font-medium text-gray-700">Jugol Kumar</p>
-                                <p class="text-xs text-gray-400">admin@system.com</p>
+                                <p class="text-sm font-medium text-gray-700">{{ auth.user?.name ?? 'Jugol Kumar' }}</p>
+                                <p class="text-xs text-gray-400">{{ auth.user?.email ?? 'admin@system.com' }} </p>
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                             <span class="text-gray-400 font-normal">Account Settings</span>
                         </li>
                     </ul>
-                    <div class="py-2 px-4 hover:bg-gray-100 cursor-pointer flex items-center gap-2">
+                    <div @click="handelLogout" class="py-2 px-4 hover:bg-gray-100 cursor-pointer flex items-center gap-2">
                         <i class="ki-duotone ki-exit-left">
                             <span class="path1"></span>
                             <span class="path2"></span>
@@ -178,7 +178,13 @@
 
 <script setup>
   import {createPopper} from "@popperjs/core"
+  import { useAuthStore } from "~/stores/useAuthStore"
+  const auth = useAuthStore();
   const isLogined = ref(false)
+
+  const handelLogout = () =>{
+    auth.logout();
+  }
 
   onMounted(()=>{
     const popperInstance = {}

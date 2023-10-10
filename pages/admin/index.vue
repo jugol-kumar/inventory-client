@@ -764,7 +764,8 @@
 
 
   definePageMeta({
-    layout:'admin'
+    layout:'admin',
+    middleware:['guest']
   })
 
   useHead({

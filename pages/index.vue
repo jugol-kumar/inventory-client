@@ -1,5 +1,5 @@
 <template>
-  <AdminPreLoder v-if="preloder" />
+  <AdminPreLoder  v-if="preloder"/>
   <div
     v-else
     class="w-screen h-screen fixed bg-gradient-to-br from-purple-400 to-orange-300"
@@ -13,6 +13,7 @@
         <div
           class="absolute w-60 h-60 bg-orange-200/50 -top-16 right-8 -z-10 blur-3xl"
         ></div>
+
         <!-- <div class="absolute w-60 h-60 bg-purple-100 -bottom-20 left-10 -z-10 blur-3xl"></div> -->
         <div class="flex justify-center mt-6">
           <i class="ki-duotone ki-security-user text-[4rem] text-gray-700">
@@ -73,29 +74,38 @@
 </template>
 
 <script setup>
+  import { useAuthStore } from "~/stores/useAuthStore"
+
+
+  definePageMeta({
+    middleware:['auth']
+  })
 
   const email = ref("admin@admin.com")
   const password = ref("password")
   const errors = ref(null)
 
   const isLoading = ref(false)
+  const auth = useAuthStore()
+
 
   const login = async () =>{
+    isLoading.value = true;
+    const { pending, error} = await auth.login({email:email.value, password:password.value})
+    errors.value = error.value?.data.errors
 
-    await useApiFetch("/sanctum/csrf-cookie")
-
-    await useApiFetch("/login",{
-      method:"POST",
-      body:{email:email.value, password:password.value},
-    })
-
-    const {data} = await useApiFetch("/api/user")
-    console.log(data)
+    if(error.value){
+      isLoading.value = false;
+    }
+    if(auth.isLoggedIn){
+      isLoading.value = false;
+      return navigateTo('/admin')
+    }
   }
 
     
-    const preloder = ref(true)
-    onMounted(() => preloder.value = false)
+  const preloder = ref(true)
+  onMounted(() => preloder.value = false)
 </script>
 
 <style>

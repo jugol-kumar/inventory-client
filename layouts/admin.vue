@@ -13,6 +13,7 @@
 </template>
 
 <script setup>
+
   const isLoading = ref(true)
   onMounted(() => isLoading.value = false)
 </script>

@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [
     '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
   ],
   tailwindcss: {
     cssPath: "~/assets/main.css",
@@ -23,6 +24,10 @@ export default defineNuxtConfig({
         {rel:"manifest", href:"./admin/favicon/site.webmanifest"},
       ]
     }
-  }
-
+  },  
+  // routeRules:{
+  //   '/' :{ssr:false},
+  //   '/old-page': { redirect: '/admin' }
+  // }
+  ssr:false
 })

@@ -1,4 +1,5 @@
 import type { UseFetchOptions } from 'nuxt/app'
+import {useRequestHeaders} from "nuxt/app";
 
 
 export function useApiFetch<T> (path: string, options: UseFetchOptions<T> = {}) {
@@ -10,12 +11,14 @@ export function useApiFetch<T> (path: string, options: UseFetchOptions<T> = {}) 
       headers['X-XSRF-TOKEN'] = token.value as string
   }
 
-  // if(process.server){
-  //   headers = {
-  //     ...headers,
-  //     ...useRequestHeaders(["referer", "cookie"])
-  //   }
-  // }
+  if(process.server){
+    headers = {
+      ...headers,
+      ...useRequestHeaders(["cookie"]),
+      referer: "http://localhost:3000",
+
+    }
+  }
 
   return useFetch("http://localhost:8000"+path,{
     credentials:"include",
