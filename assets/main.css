@@ -13,11 +13,11 @@ body{
 
 @layer components{
   .btn{
-      @apply px-9 py-3 bg-orange-400 hover:shadow-xl rounded-lg mb-32 font-bold  hover:shadow-orange-300 text-white duration-100 hover:scale-105
+    @apply px-9 py-3 bg-orange-400 hover:shadow-xl rounded-lg font-bold  hover:shadow-orange-300 text-white duration-100 hover:scale-105
   }
   
   .btn-primary{
-      @apply px-9 py-3 bg-purple-400 hover:shadow-md rounded-lg font-bold cursor-pointer hover:shadow-slate-700 text-white duration-100 hover:scale-105
+    @apply px-9 py-3 bg-purple-400 hover:shadow-md rounded-lg font-bold cursor-pointer hover:shadow-slate-700 text-white duration-100 hover:scale-105
   }
 
   .ki-duotone,
